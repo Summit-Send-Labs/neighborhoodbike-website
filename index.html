@@ -764,8 +764,8 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: var(--red);
-            color: var(--white);
+            background: var(--white);
+            color: var(--red);
             font-family: var(--font-disp);
             font-weight: 600;
             font-size: 1rem;
@@ -775,11 +775,12 @@
             border-radius: 6px;
             text-decoration: none;
             margin-bottom: 1.75rem;
-            transition: background 0.2s, transform 0.15s;
-            box-shadow: 0 4px 14px rgba(165,35,37,0.18);
+            transition: background 0.2s, transform 0.15s, color 0.2s;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            border: 2px solid var(--white);
           "
-          onmouseover="this.style.background='var(--red-dk)'; this.style.transform='translateY(-1px)';"
-          onmouseout="this.style.background='var(--red)'; this.style.transform='translateY(0)';"
+          onmouseover="this.style.background='var(--red-lt)'; this.style.transform='translateY(-1px)';"
+          onmouseout="this.style.background='var(--white)'; this.style.transform='translateY(0)';"
         >
           <span style="font-size: 1.15rem; line-height: 1;">📍</span>
           <span>Find Me — GPS Sometimes Gets It Wrong</span>
@@ -801,7 +802,7 @@
             <div>
               <div class="contact-label">Email</div>
               <div class="contact-val">
-                <a href="mailto:clay@breckbikeservice.com">clay@breckbikeservice.com</a>
+                <a href="mailto:clay@neighborhoodbike.com?subject=Neighborhood%20Bike%20Service%20Request">clay@neighborhoodbike.com</a>
               </div>
             </div>
           </div>
@@ -820,7 +821,7 @@
         <div class="contact-card">
           <h3>Schedule a Service</h3>
           <p>Reach out by email to book any service — from a quick tune to a full overhaul. Clay will get back to you personally.</p>
-          <a href="mailto:clay@breckbikeservice.com" class="btn-red">Send an Email →</a>
+          <a href="mailto:clay@neighborhoodbike.com?subject=Neighborhood%20Bike%20Service%20Request" class="btn-red">Send an Email →</a>
           <div class="social-row">
             <a href="https://www.facebook.com/neighborhoodbike" target="_blank" rel="noopener" class="social-btn">
               f &nbsp;Facebook
