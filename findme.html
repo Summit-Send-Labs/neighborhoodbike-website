@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find the Shop — Neighborhood Bike, Breckenridge CO</title>
+<meta name="description" content="GPS gets you close. Here are some things you need to know to find Neighborhood Bike in Breckenridge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --red:       #A52325;
+    --red-dk:    #8A1C1E;
+    --red-lt:    #F9ECEC;
+    --sky:       #4BBFDE;
+    --sky-lt:    #EAF7FB;
+    --white:     #FFFFFF;
+    --off:       #FAFAF9;
+    --cream:     #F4F1EB;
+    --ink:       #1A1A18;
+    --ink-mid:   #3D3D38;
+    --ink-lite:  #8A8A82;
+    --warn-bg:   #FFF8E7;
+    --warn-br:   #E8C547;
+    --warn-ink:  #7A5A00;
+    --border:    rgba(26,26,24,0.09);
+    --font-disp: 'Oswald', sans-serif;
+    --font-body: 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--off);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ────────────────────────────────────────────
+     NAV — matches main NB site
+     ──────────────────────────────────────────── */
+  nav {
+    position: sticky;
+    top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 3px solid var(--red);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  }
+  .nav-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-logo img {
+    height: 62px;
+    width: auto;
+    display: block;
+  }
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .nav-logo-top {
+    font-family: var(--font-disp);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .nav-logo-sub {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-top: 3px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-family: var(--font-disp);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-cta {
+    background: var(--red) !important;
+    color: var(--white) !important;
+    padding: 0.6rem 1.5rem !important;
+    border-radius: 3px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--red-dk) !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 4px;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+  /* CONTAINER */
+  main { max-width: 920px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* HERO */
+  .hero {
+    padding: 3.5rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-family: var(--font-disp);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sky);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 28px; height: 2px;
+    background: var(--sky);
+  }
+  .hero-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .hero-text { flex: 1; }
+  .hero h1 {
+    font-family: var(--font-disp);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 span { color: var(--red); }
+  .hero-lede {
+    font-size: 1.15rem;
+    color: var(--ink-mid);
+    max-width: 620px;
+    line-height: 1.6;
+  }
+  .hero-photo-placeholder {
+    flex-shrink: 0;
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #d9d4ca 0%, #b8b0a1 100%);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    font-family: var(--font-disp);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    gap: 0.5rem;
+  }
+  @media (max-width: 720px) {
+    .hero-body { flex-direction: column; }
+    .hero-photo-placeholder { width: 100%; height: 200px; }
+  }
+
+  /* WARNING CARD */
+  .warning {
+    margin-top: 2rem;
+    background: var(--warn-bg);
+    border-left: 4px solid var(--warn-br);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .warning-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .warning-text {
+    font-size: 0.98rem;
+    color: var(--warn-ink);
+    line-height: 1.6;
+  }
+  .warning-text strong { color: var(--ink); }
+
+  /* SECTION */
+  section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: 0; }
+
+  .kicker {
+    font-family: var(--font-disp);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sky);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.75rem;
+  }
+  .kicker::before { content:''; width: 24px; height: 2px; background: var(--sky); }
+
+  h2 {
+    font-family: var(--font-disp);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  h2 span { color: var(--red); }
+
+  p.body {
+    font-size: 1.05rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    max-width: 620px;
+    margin-bottom: 1rem;
+  }
+
+  /* ────────────────────────────────────────────
+     BAILOUT — moved up, sits between maps and photos
+     ──────────────────────────────────────────── */
+  .bailout {
+    background: var(--ink);
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: var(--white);
+    margin-top: 1rem;
+  }
+  .bailout h3 {
+    font-family: var(--font-disp);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .bailout p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+  .text-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--red);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-family: var(--font-disp);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+    border: 0;
+    cursor: pointer;
+  }
+  .text-btn:hover { background: var(--red-dk); }
+  .text-btn:active { transform: translateY(1px); }
+  .text-btn-icon { font-size: 1.2rem; }
+  .bailout-fine {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.04em;
+  }
+
+  /* ────────────────────────────────────────────
+     OPEN IN MAPS + QR CODE — combined section
+     ──────────────────────────────────────────── */
+  .nav-and-qr {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: stretch;
+  }
+  @media (max-width: 720px) {
+    .nav-and-qr { grid-template-columns: 1fr; }
+  }
+  .nav-card, .qr-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+  }
+  .nav-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .nav-card h3 {
+    font-family: var(--font-disp);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .nav-card p {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+
+  /* Single button + small fallback links */
+  .open-maps-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--sky);
+    color: var(--ink);
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    font-family: var(--font-disp);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+    width: 100%;
+  }
+  .open-maps-btn:hover { background: #2FB1D6; }
+  .open-maps-btn:active { transform: translateY(1px); }
+
+  /* Send to phone — secondary action under maps button */
+  .send-phone-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--ink-mid);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    border: 2px solid var(--border);
+    font-family: var(--font-disp);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    width: 100%;
+    margin-top: 0.65rem;
+    font-family: var(--font-disp);
+  }
+  .send-phone-btn:hover {
+    border-color: var(--sky);
+    color: var(--ink);
+    background: var(--sky-lt);
+  }
+  .send-phone-btn:active { transform: translateY(1px); }
+  .send-phone-btn-icon { font-size: 1rem; }
+  .send-phone-toast {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    color: var(--sky);
+    text-align: center;
+    font-family: var(--font-body);
+    opacity: 0;
+    transition: opacity 0.2s;
+    height: 1.2em;
+  }
+  .send-phone-toast.show { opacity: 1; }
+  .map-fallbacks {
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+    color: var(--ink-lite);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .map-fallbacks a {
+    color: var(--ink-mid);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+  }
+  .map-fallbacks a:hover { color: var(--red); text-decoration-color: var(--red); }
+  .coords-note {
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--ink-lite);
+    text-align: center;
+    font-family: var(--font-disp);
+    letter-spacing: 0.06em;
+  }
+
+  /* QR code card */
+  .qr-card {
+    text-align: center;
+    min-width: 200px;
+  }
+  .qr-card h3 {
+    font-family: var(--font-disp);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-lite);
+    margin-bottom: 0.85rem;
+  }
+  .qr-frame {
+    background: var(--white);
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  #qr canvas, #qr img { width: 124px !important; height: 124px !important; display: block; }
+  .qr-card-sub {
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--ink-lite);
+    line-height: 1.5;
+  }
+
+  /* HOUSE HERO PHOTO */
+  .house-photo {
+    margin-top: 1.5rem;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #d9d4ca 0%, #b8b0a1 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-mid);
+    font-family: var(--font-disp);
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+  }
+  .house-photo-placeholder {
+    text-align: center;
+    padding: 2rem;
+  }
+  .house-photo-placeholder strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .house-photo-placeholder em {
+    display: block;
+    font-style: normal;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .photo-caption {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--ink-lite);
+    font-style: italic;
+  }
+
+  /* LANDMARKS LIST */
+  .landmarks {
+    margin-top: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+  }
+  .landmarks ul { list-style: none; }
+  .landmarks li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .landmarks li:last-child { border-bottom: 0; }
+  .landmarks li strong {
+    display: block;
+    font-family: var(--font-disp);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 2px;
+  }
+  .landmarks li span {
+    flex: 1;
+    color: var(--ink-mid);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  .landmarks li .num {
+    width: 28px; height: 28px;
+    flex-shrink: 0;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-disp);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  /* TURN BY TURN PHOTO STRIP */
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 720px) {
+    .steps { grid-template-columns: 1fr; }
+  }
+  .step {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .step-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #c9c2b3 0%, #a8a091 100%);
+    display: block;
+    object-fit: cover;
+  }
+  .step-body {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+  .step-num {
+    font-family: var(--font-disp);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .step-text {
+    font-size: 0.98rem;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  /* ────────────────────────────────────────────
+     FOOTER — matches main NB site
+     ──────────────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    padding: 2.5rem 2rem;
+  }
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .footer-logo-wrap img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+  .footer-logo-name {
+    font-family: var(--font-disp);
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .footer-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .footer-links a {
+    font-family: var(--font-disp);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+  .footer-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    text-align: right;
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-credit {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+  }
+  .footer-credit a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-credit a:hover { color: rgba(255,255,255,0.85); }
+
+  /* RESPONSIVE NAV */
+  @media (max-width: 960px) {
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute; top: 80px; left: 0; right: 0;
+      background: var(--white);
+      flex-direction: column;
+      padding: 1.5rem 2rem 2rem;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      gap: 1.25rem;
+    }
+    .nav-links.open { display: flex; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .footer-meta { align-items: flex-start; text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ━━ NAV (matches main NB site) ━━ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-text">
+        <span class="nav-logo-top">Neighborhood Bike</span>
+        <span class="nav-logo-sub">Breckenridge, Colorado</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="findme.html" style="color:var(--red);">Find Me</a></li>
+      <li><a href="#contact" class="nav-cta">Book a Service</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Finding the Shop</div>
+  <div class="hero-body">
+    <div class="hero-text">
+      <h1>GPS Will Get You <span>Close.</span><br>But, it can still be confusing.</h1>
+      <p class="hero-lede">
+        GPS will get you to the right road — but a few houses along the way are also Number 10, and the numbers are hard to read. Look for forest green siding with purple trim and a sign with our logo and "10 Ontario Green" out front. Free parking is on the right, in front of the wooden "Fair Fountain Green" sign — once you're parked, the shop is above the garage right behind you.
+      </p>
+    </div>
+    <div class="hero-photo-placeholder" style="background:none; padding:0; overflow:hidden;">
+      <img src="assets/shop-photo.png" alt="Neighborhood Bike — the shop building from Ontario Green" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ━━ MAPS + QR + TEXT BAILOUT (moved up) ━━ -->
+<section>
+  <div class="kicker">Get Going</div>
+  <h2>Open in <span>Your Map App.</span></h2>
+  <p class="body">
+    These open the exact coordinates of the shop — not the default address pin Google uses.
+  </p>
+
+  <div class="nav-and-qr">
+    <div class="nav-card">
+      <div>
+        <h3>On Your Phone</h3>
+        <p>Tap to open in your default map app — or pick a specific one below.</p>
+      </div>
+      <div>
+        <a class="open-maps-btn" href="#" onclick="openInMaps(); return false;">
+          Open in Maps →
+        </a>
+        <div class="map-fallbacks">
+          Or open in:
+          <a href="http://maps.apple.com/?ll=39.483120,-106.027716&q=Neighborhood+Bike" target="_blank" rel="noopener">Apple Maps</a> ·
+          <a href="https://www.google.com/maps/dir/?api=1&destination=39.483120,-106.027716" target="_blank" rel="noopener">Google Maps</a> ·
+          <a href="https://waze.com/ul?ll=39.483120,-106.027716&navigate=yes" target="_blank" rel="noopener">Waze</a>
+        </div>
+        <div class="coords-note">39.483120, −106.027716</div>
+      </div>
+    </div>
+
+    <div class="qr-card">
+      <h3>On a Computer?</h3>
+      <div class="qr-frame">
+        <div id="qr"></div>
+      </div>
+      <div class="qr-card-sub">Scan with your phone to open this page in your hand and tap the map button there.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BAILOUT — text Clay (now sits between maps and photos) -->
+<section>
+  <div class="kicker">Still Lost?</div>
+  <h2>Text Clay <span>Directly.</span></h2>
+  <p class="body">
+    If you've used the maps and you're still not sure which house is the right one, tap the button. Clay's number stays hidden — your message app opens with it pre-filled.
+  </p>
+
+  <div class="bailout">
+    <h3>I'm Lost — Text Clay</h3>
+    <p>The button opens your messages app with Clay's number ready. Tell him where you are and he'll guide you in.</p>
+    <a class="text-btn" href="sms:+19705550000?body=Hey%20Clay%2C%20I%27m%20trying%20to%20find%20the%20shop%20and%20I%27m%20somewhere%20near%20">
+      <span class="text-btn-icon">💬</span>
+      <span>Text Clay for Help</span>
+    </a>
+    <span class="bailout-fine">Opens your messages app</span>
+  </div>
+</section>
+
+
+
+<!-- TURN BY TURN PHOTOS -->
+<section>
+  <div class="kicker">Turn-by-Turn</div>
+  <h2>Photos From <span>The Road.</span></h2>
+  <p class="body">
+    What you'll actually see approaching the shop. If anything looks different than the last photo, you've probably gone too far — turn around.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <img class="step-img" src="assets/findme-step-1.jpg" alt="Turning off Wellington Road onto Bridge Street, with the Bridge St sign and Breckenridge ski area in the distance">
+      <div class="step-body">
+        <div class="step-num">Step 1</div>
+        <div class="step-text">Turn off of Wellington Road onto Bridge Street. (Heading west on Wellington — Breckenridge ski area is straight ahead.)</div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="step-img" src="assets/findme-step-2.jpg" alt="Bridge Street curving through the neighborhood after the turn">
+      <div class="step-body">
+        <div class="step-num">Step 2</div>
+        <div class="step-text">Stay left to keep on Bridge Street as you enter the neighborhood.</div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="step-img" src="assets/findme-step-3.jpg" alt="View down Bridge Street through the neighborhood, the shop is roughly halfway down on the left">
+      <div class="step-body">
+        <div class="step-num">Step 3</div>
+        <div class="step-text">The shop is on the left side of the road — this is roughly the halfway point through the neighborhood.</div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="step-img" src="assets/findme-step-4.jpg" alt="Approaching the shop — green siding with purple trim on the left, parking on the right">
+      <div class="step-body">
+        <div class="step-num">Step 4</div>
+        <div class="step-text">As you approach, you'll see the shop in green with purple trim on the left. Parking is on the right.</div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="step-img" src="assets/findme-step-5.jpg" alt="Neighborhood Bike sign mounted between two garage doors on the green building">
+      <div class="step-body">
+        <div class="step-num">Step 5</div>
+        <div class="step-text">Look for the Neighborhood Bike sign between the two garage doors.</div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="step-img" src="assets/findme-step-6.jpg" alt="Wood arch with Fair Fountain Green signage marking the parking area">
+      <div class="step-body">
+        <div class="step-num">Step 6</div>
+        <div class="step-text">Park in front of the wood structure with "Fair Fountain Green" signage. The shop is right behind you, above the garage.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ━━ FOOTER (matches main NB site) ━━ -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo-wrap">
+      <span class="footer-logo-name">Neighborhood Bike</span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div class="footer-meta">
+      <span class="footer-copy">© 2026 Neighborhood Bike LLC · Breckenridge, CO</span>
+      <span class="footer-credit">Site by <a href="https://summitsendlabs.com" target="_blank" rel="noopener">Summit Send Labs</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  function openInMaps() {
+    var lat = 39.483120, lng = -106.027716, label = 'Neighborhood Bike';
+    var ua = navigator.userAgent;
+    if (/iPad|iPhone|iPod/.test(ua)) {
+      window.location.href = 'https://maps.apple.com/?ll=' + lat + ',' + lng + '&q=' + encodeURIComponent(label);
+    } else if (/Android/.test(ua)) {
+      window.location.href = 'geo:' + lat + ',' + lng + '?q=' + lat + ',' + lng + '(' + encodeURIComponent(label) + ')';
+    } else {
+      window.open('https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng, '_blank');
+    }
+  }
+
+  (function() {
+    var el = document.getElementById("qr");
+    new QRCode(el, {
+      text: 'https://www.google.com/maps/search/?api=1&query=39.483120,-106.027716',
+      width: 124,
+      height: 124,
+      colorDark: "#1A1A18",
+      colorLight: "#FFFFFF",
+      correctLevel: QRCode.CorrectLevel.M
+    });
+    setTimeout(function() {
+      var c = el.querySelector("canvas");
+      var i = el.querySelector("img");
+      if (c) { c.style.width="124px"; c.style.height="124px"; }
+      if (i) { i.style.width="124px"; i.style.height="124px"; }
+    }, 200);
+  })();
+</script>
+</body>
+</html>
